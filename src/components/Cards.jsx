@@ -1,6 +1,6 @@
 
 import React from 'react'
-
+import Card from './Card';
 
 function Cards({courses}) {
 
@@ -17,7 +17,7 @@ function Cards({courses}) {
   return (
     <div>
         {getCourses().map((course)=>{
-            <card course={course}/>
+            <Card key={course.id} course={course}/>
         })}
     </div>
   )

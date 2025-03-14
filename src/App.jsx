@@ -3,34 +3,45 @@ import React, { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import Filter from "./components/Filter"
 import Cards from "./components/Cards"
+import Spinner from "./components/Spinner"
+
 import {apiUrl, filterData} from "./data"
 import { toast } from "react-toastify"
 
-function App() {
+const App=()=> {
   const [courses, setCourses]=useState(null);
-  useEffect(()=>{
-    const fetchData=async()=>{
+  const[loading, setLoading]=useState(true); 
+  
+    async function fetchData(){
+      setLoading(true);
       try{
-        const res=await fetch(apiUrl);
-        const output=await res.json();
-        setCourses(output.data);
+        let res=await fetch(apiUrl);
+        let output=await response.json();
+        setCourses(output);
       }
       catch(error){
         toast.error("Something went wrong");
       }
+      setLoading(false);
     }
-    fetchData();
-  }, [])
+
+    useEffect(()=>{
+      fetchData();
+    }, [])
 
   return (
     <div>
-      <Navbar/>
+      <div><Navbar/></div>
 
-      <Filter
-        filterData={filterData}
-      />
+      <div>
+        <Filter filterData={filterData}/>
+      </div>
 
-      <Cards courses={courses}/>
+      <div>
+        {
+          loading? (<Spinner/>) : (<Cards/>)
+        }
+      </div>
     </div>
   )
 }
