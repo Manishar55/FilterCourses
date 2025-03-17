@@ -1,5 +1,5 @@
 
-import {FcLike} from "react-icons/fc"
+import {FcLike, FcLikePlaceholder} from "react-icons/fc"
 import React from 'react'
 import { toast } from "react-toastify";
 
@@ -28,9 +28,10 @@ function Card({course, likedCourses, setLikedCourses}) {
         <div className="relative">
             <img src={course.image.url}></img>
             
-            <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 bottom-3 grid place-items-center ">
-                <button onClick={clickHandler}>
-                    <FcLike fontSize="1.75rem"/>
+            <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 bottom-3 grid place-items-center cursor-pointer">
+                <button onClick={clickHandler} className="cursor-pointer">
+                    {likedCourses.includes(course.id)? (<FcLike fontSize="1.75rem"/>) : (<FcLikePlaceholder fontSize="1.75rem"/>)}
+                    
                 </button>
             </div>
         </div>
