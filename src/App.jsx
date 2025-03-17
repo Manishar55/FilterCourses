@@ -9,7 +9,7 @@ import {apiUrl, filterData} from "./data"
 import { toast } from "react-toastify"
 
 const App=()=> {
-  const [courses, setCourses]=useState(null);
+  const [courses, setCourses]=useState();
   const[loading, setLoading]=useState(true); 
   
     async function fetchData(){

@@ -2,7 +2,8 @@
 import React from 'react'
 import Card from './Card';
 
-function Cards({courses}) {
+const Cards = (props) => {
+    let courses=props.courses;
 
     //it returns list of all the courses
     
@@ -15,13 +16,15 @@ function Cards({courses}) {
         })
         return allCourses;
     }
-  return (
-    <div> 
-        {getCourses().map((course)=>{
-            <Card key={course.id} course={course}/>
-        })}
-    </div>
-  )
+    return(
+        <div> 
+            {
+                getCourses().map((course)=>(
+                    <Card key={course.id} course={course}/>
+                ))
+            }
+        </div>
+    )
 }
 
 export default Cards
