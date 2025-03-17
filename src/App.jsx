@@ -30,7 +30,7 @@ const App=()=> {
     }, [])
 
   return (
-    <div className="min-h-screen flex flex-col" >
+    <div className="min-h-screen flex flex-col bg-blue-950/70" >
       
       <div><Navbar/></div>
 
