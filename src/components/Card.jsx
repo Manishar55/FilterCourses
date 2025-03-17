@@ -37,7 +37,11 @@ function Card({course, likedCourses, setLikedCourses}) {
         </div>
         <div className="p-4">
             <p className="text-white font-semibold text-lg loading-6 ">{course.title}</p>
-            <p className="mt-2 text-white">{course.description}</p> 
+            <p className="mt-2 text-white">
+                {
+                    course.description.length > 100 ? (course.description.substr(0, 100)):(course.description) 
+                }
+            </p> 
         </div>
     </div>
   )
