@@ -28,7 +28,7 @@ function Card({course, likedCourses, setLikedCourses}) {
         <div className="relative">
             <img src={course.image.url}></img>
             
-            <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 bottom-3 grid place-items-center cursor-pointer">
+            <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 top-37 grid place-items-center cursor-pointer">
                 <button onClick={clickHandler} className="cursor-pointer">
                     {likedCourses.includes(course.id)? (<FcLike fontSize="1.75rem"/>) : (<FcLikePlaceholder fontSize="1.75rem"/>)}
                     
