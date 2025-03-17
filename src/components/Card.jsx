@@ -16,7 +16,7 @@ function Card({course}) {
         </div>
         <div>
             <p>{course.title}</p>
-            <p>{course.description}</p>
+            <p>{course.description}</p> 
         </div>
     </div>
   )

@@ -15,9 +15,9 @@ const App=()=> {
     async function fetchData(){
       setLoading(true);
       try{
-        let res=await fetch(apiUrl);
+        let response=await fetch(apiUrl);
         let output=await response.json();
-        setCourses(output);
+        setCourses(output.data);
       }
       catch(error){
         toast.error("Something went wrong");
@@ -39,11 +39,11 @@ const App=()=> {
 
       <div>
         {
-          loading? (<Spinner/>) : (<Cards/>)
+          loading? (<Spinner/>) : (<Cards courses={courses} />)
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default App

@@ -5,17 +5,18 @@ import Card from './Card';
 function Cards({courses}) {
 
     //it returns list of all the courses
-    let allCourses=[];
-    const getCourses=()=>{
-        Object.values(courses).forEach((courseCategory)=>{
-            courseCategory.forEach((course)=>{
-                allCourses.push(course);
+    
+    function getCourses(){
+        let allCourses=[];
+        Object.values(courses).forEach(array => {
+            array.forEach(courseData => {
+                allCourses.push(courseData);
             })
         })
         return allCourses;
     }
   return (
-    <div>
+    <div> 
         {getCourses().map((course)=>{
             <Card key={course.id} course={course}/>
         })}
