@@ -1,11 +1,27 @@
 
 import {FcLike} from "react-icons/fc"
 import React from 'react'
+import { toast } from "react-toastify";
 
-function Card({course}) {
+function Card({course, likedCourses, setLikedCourses}) {
 
     function clickHandler(){
-        
+
+        if(likedCourses.includes(course.id)){
+            //pehle se liked hai
+            setLikedCourses((prev)=>prev.filter((cid)=>(cid!==course.id)));
+            toast.warning("Like Removed");
+        }else{
+            //pehle se liked nhi hai, insert kar do liked courses me
+            if(likedCourses.length===0){
+                setLikedCourses([course.id])
+            }
+            else{
+                setLikedCourses((prev)=>[...prev, course.id])
+            }
+            toast.success("Liked Successfully")
+        }
+
     }
   return (
     <div className="w-[300px] bg-blue-950/80 rounded-md overflow-hidden ">
