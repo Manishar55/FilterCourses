@@ -4,8 +4,8 @@ import React from 'react'
 
 function Card({course}) {
   return (
-    <div>
-        <div>
+    <div className="w-[300px] bg-blue-950/80 rounded-md overflow-hidden text-white">
+        <div className="relative">
             <img src={course.image.url}></img>
             
             <div>
